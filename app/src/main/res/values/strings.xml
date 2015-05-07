@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Edu</string>
+    <string name="edu_title">Edu Title</string>
+    <string name="action_settings">Settings</string>
+</resources>
