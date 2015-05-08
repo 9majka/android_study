@@ -18,6 +18,10 @@
         <activity android:name=".EduDetailedActivity"
             android:label="@string/app_name">
         </activity>
+        <activity android:name=".EduDetailedPagerActivity"
+            android:label="@string/app_name">
+        </activity>
+
     </application>
 
 </manifest>

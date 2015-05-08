@@ -2,6 +2,7 @@ package com.example.oshch.edu;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,8 +47,15 @@ public class EduDetailedFragment extends Fragment {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UUID itemId = (UUID) getActivity().getIntent().getSerializableExtra(EXTRA_ITEM_ID);
+        UUID itemId = (UUID)getArguments().getSerializable(EXTRA_ITEM_ID);
         mModelItem = EduModel.get(getActivity()).getModelItem(itemId);
+    }
 
+    public static EduDetailedFragment getInstance(UUID id){
+        Bundle args = new Bundle();
+        args.putSerializable(EXTRA_ITEM_ID, id);
+        EduDetailedFragment fragment = new EduDetailedFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

@@ -22,7 +22,7 @@ public class EduListFragment extends ListFragment{
 
         EduModelItem item = (EduModelItem)(getListAdapter().getItem(position));
 
-        Intent intent = new Intent(getActivity(), EduDetailedActivity.class);
+        Intent intent = new Intent(getActivity(), EduDetailedPagerActivity.class);
         intent.putExtra(EduDetailedFragment.EXTRA_ITEM_ID, item.getId());
         startActivity(intent);
     }
@@ -36,6 +36,12 @@ public class EduListFragment extends ListFragment{
         ModelItemAdapter adapter = new ModelItemAdapter(mModelItems);
 
         setListAdapter(adapter);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((ModelItemAdapter)getListAdapter()).notifyDataSetChanged();
     }
 
     private class ModelItemAdapter extends ArrayAdapter<EduModelItem> {
